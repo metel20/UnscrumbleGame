@@ -28,8 +28,5 @@ class MainActivity : AppCompatActivity() {
         val uiState = viewModel.init()
         uiState.show(binding)
 
-
-
-
     }
 }
