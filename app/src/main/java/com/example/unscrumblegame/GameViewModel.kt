@@ -49,7 +49,3 @@ interface SkipActions {
 
     fun restart(): UiState
 }
-{
-    fun skip(): UiState
-    fun restart(): UiState
-}
