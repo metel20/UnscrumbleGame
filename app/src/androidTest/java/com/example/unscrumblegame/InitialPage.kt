@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -23,19 +24,27 @@ class InitialPage(
     private val score: String,
     private val shuffledWord: String
 ) {
-    fun checkVisible(input: String = "") {
-        onView(
+    fun checkVisible(input: String = "", submitEnabled: Boolean = false) {
+        val onView = onView(
             allOf(
                 withId(R.id.submitButton),
                 isAssignableFrom(Button::class.java),
                 withParent(withId(R.id.rootLayout)),
                 withParent(isAssignableFrom(LinearLayout::class.java))
             )
-        ).check(
-            matches(
-                not(isEnabled())
-            )
         )
+        if (submitEnabled) {
+            onView.check(
+                matches(
+                    (isEnabled())
+                )
+            )
+        } else
+            onView.check(
+                matches(
+                    not(isEnabled())
+                )
+            )
         onView(
             allOf(
                 withId(R.id.counterTextView),
@@ -71,9 +80,7 @@ class InitialPage(
         onView(
             allOf(
                 withId(R.id.inputEditText),
-                isAssignableFrom(TextInputEditText::class.java),
-                withParent(withId(R.id.rootLayout)),
-                withParent(isAssignableFrom(LinearLayout::class.java))
+                isAssignableFrom(TextInputEditText::class.java)
             )
         ).check(matches(withText(input)))
         onView(
@@ -83,7 +90,7 @@ class InitialPage(
                 withParent(withId(R.id.rootLayout)),
                 withParent(isAssignableFrom(LinearLayout::class.java))
             )
-        ).check(matches(withText("skip")))
+        ).check(matches(withText("Skip")))
     }
 
     fun clickSubmit() {
@@ -106,22 +113,18 @@ class InitialPage(
         onView(
             allOf(
                 withId(R.id.inputEditText),
-                isAssignableFrom(TextInputEditText::class.java),
-                withParent(withId(R.id.rootLayout)),
-                withParent(isAssignableFrom(LinearLayout::class.java))
+                isAssignableFrom(TextInputEditText::class.java)
             )
-        ).perform(ViewActions.typeText(word))
+        ).perform(ViewActions.typeText(word), closeSoftKeyboard())
     }
 
     fun replaceText(text: String) {
         onView(
             allOf(
                 withId(R.id.inputEditText),
-                isAssignableFrom(TextInputEditText::class.java),
-                withParent(withId(R.id.rootLayout)),
-                withParent(isAssignableFrom(LinearLayout::class.java))
+                isAssignableFrom(TextInputEditText::class.java)
             )
-        ).perform(ViewActions.replaceText(text))
+        ).perform(ViewActions.replaceText(text), closeSoftKeyboard())
     }
 
 

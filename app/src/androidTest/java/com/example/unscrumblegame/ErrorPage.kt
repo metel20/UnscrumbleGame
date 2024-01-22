@@ -1,5 +1,4 @@
 package com.example.unscrumblegame
-
 import android.widget.LinearLayout
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -18,7 +17,7 @@ class ErrorPage {
                 withParent(withId(R.id.rootLayout)),
                 withParent(isAssignableFrom(LinearLayout::class.java))
             )
-        ).check(matches(InputErrorMatcher("wrong guess")))
+        ).check(matches(InputErrorMatcher("Wrong guess")))
     }
 
 }

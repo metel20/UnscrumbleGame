@@ -13,6 +13,9 @@ class InputErrorMatcher(private val error: String) :
     }
 
     override fun matchesSafely(item: TextInputLayout): Boolean {
-        return item.error.toString() == error
+        return if (error == "") {
+            item.error.isNullOrEmpty()
+        } else
+            item.error.toString() == error
     }
 }
