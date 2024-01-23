@@ -1,11 +1,9 @@
 package com.example.unscrumblegame
-
-
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class ViewModelTest {
+class GameViewModelTest {
     private lateinit var viewModel: GameViewModel
 
     @Before

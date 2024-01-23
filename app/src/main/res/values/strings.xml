@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UnscrambleGame</string>
+    <string name="app_name">UnscrambleGameV</string>
     <string name="enter_your_word">Enter your word</string>
     <string name="submit">Submit</string>
     <string name="skip">Skip</string>
