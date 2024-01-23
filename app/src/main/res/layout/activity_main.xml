@@ -16,6 +16,7 @@
         android:layout_weight="1" />
 
     <TextView
+        android:freezesText="true"
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,12 +25,15 @@
 
 
     <TextView
+
         android:id="@+id/counterTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        tools:text="1/2" />
+        tools:text="1/2"
+        android:freezesText="true"
+        />
 
     <TextView
         android:id="@+id/shuffledWordTextView"
