@@ -40,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:freezesText="true"
         tools:text="Animal" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +61,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <Button
+    <com.example.unscrumblegame.SubmitButton
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +70,8 @@
     <Button
         android:id="@+id/skipButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:freezesText="true"/>
 
 
 </LinearLayout>
